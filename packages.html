@@ -1,0 +1,174 @@
+ <!DOCTYPE html>
+<html lang="en" ng-app="travelApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Travel Packages</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f1eb;
+        }
+
+        nav {
+            background: #6b4f3a;
+            padding: 18px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 20px;
+            font-size: 18px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #3d2b1f;
+            margin: 35px 0 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: white;
+            width: 280px;
+            padding: 25px;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px #aaa;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .icon {
+            font-size: 45px;
+        }
+
+        .price {
+            font-size: 24px;
+            font-weight: bold;
+            color: #6b4f3a;
+        }
+
+        button {
+            background: #6b4f3a;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #4d3829;
+        }
+    </style>
+</head>
+
+<body ng-controller="PackageController">
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="destinations.html">Destinations</a>
+        <a href="packages.html">Packages</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <h1>Explore Our Travel Packages ✈️</h1>
+
+    <p class="subtitle">
+        Choose your perfect trip and start your journey!
+    </p>
+
+    <div class="container">
+
+        <div class="card" ng-repeat="package in packages">
+
+            <div class="icon">{{package.icon}}</div>
+
+            <h2>{{package.name}}</h2>
+
+            <p>{{package.days}}</p>
+
+            <p>{{package.details}}</p>
+
+            <p class="price">{{package.price}}</p>
+
+            <button ng-click="bookPackage(package)">
+                Book Now
+            </button>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        var app = angular.module("travelApp", []);
+
+        app.controller("PackageController", function($scope) {
+
+            $scope.packages = [
+
+                {
+                    icon: "🏖️",
+                    name: "Goa Trip",
+                    days: "3 Days / 2 Nights",
+                    details: "Beach, sunset and water activities",
+                    price: "₹8,999"
+                },
+
+                {
+                    icon: "🏔️",
+                    name: "Manali Trip",
+                    days: "5 Days / 4 Nights",
+                    details: "Mountains, snow and adventure",
+                    price: "₹12,999"
+                },
+
+                {
+                    icon: "🏰",
+                    name: "Jaipur Trip",
+                    days: "3 Days / 2 Nights",
+                    details: "Forts, palaces and royal culture",
+                    price: "₹7,999"
+                }
+
+            ];
+
+            $scope.bookPackage = function(package) {
+
+                window.location.href="contact.html"
+                ;
+
+            };
+
+        });
+
+    </script>
+
+</body>
+
+</html>

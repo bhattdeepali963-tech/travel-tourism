@@ -1,0 +1,153 @@
+ <!DOCTYPE html>
+<html lang="en" ng-app="travelApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact Us</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f1eb;
+        }
+
+        nav {
+            background: #6b4f3a;
+            padding: 18px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 20px;
+            font-size: 18px;
+        }
+
+        .contact {
+            width: 420px;
+            max-width: 85%;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px #aaa;
+        }
+
+        h1 {
+            text-align: center;
+            color: #3d2b1f;
+        }
+
+        .info {
+            text-align: center;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+            background: #6b4f3a;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #4d3829;
+        }
+
+        .success {
+            color: green;
+            text-align: center;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body ng-controller="ContactController">
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="destinations.html">Destinations</a>
+        <a href="packages.html">Packages</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="contact">
+
+        <h1>Contact Us 📩</h1>
+
+        <p class="info">
+            Have a question? Send us a message!
+        </p>
+
+        <form ng-submit="submitForm()">
+
+            <input type="text"
+                   placeholder="Your Name"
+                   ng-model="user.name"
+                   required>
+
+            <input type="email"
+                   placeholder="Your Email"
+                   ng-model="user.email"
+                   required>
+
+            <textarea rows="5"
+                      placeholder="Your Message"
+                      ng-model="user.message"
+                      required></textarea>
+
+            <button type="submit">
+                Send Message
+            </button>
+
+        </form>
+
+        <p class="success" ng-if="submitted">
+            ✅ Thank you {{user.name}}! Your message has been submitted.
+        </p>
+
+    </div>
+
+    <script>
+
+        var app = angular.module("travelApp", []);
+
+        app.controller("ContactController", function($scope) {
+
+            $scope.user = {};
+
+            $scope.submitted = false;
+
+            $scope.submitForm = function() {
+                $scope.submitted = true;
+            };
+
+        });
+
+    </script>
+
+</body>
+
+</html>

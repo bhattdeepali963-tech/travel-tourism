@@ -1,0 +1,195 @@
+ <!DOCTYPE html>
+<html lang="en" ng-app="travelApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Travel & Tourism</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f1eb;
+            color: #3d2b1f;
+        }
+
+        nav {
+            background: #5b4030;
+            padding: 18px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #ffd9a0;
+        }
+
+        .hero {
+            min-height: 520px;
+            padding: 110px 20px;
+            text-align: center;
+            background:
+                linear-gradient(rgba(60, 40, 25, 0.45), rgba(60, 40, 25, 0.45)),
+                url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee")
+                center/cover;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 55px;
+            margin: 10px;
+        }
+
+        .hero p {
+            font-size: 21px;
+            max-width: 650px;
+            margin: 20px auto;
+        }
+
+        .btn {
+            background: #f0b77a;
+            color: #3d2b1f;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 25px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        .section {
+            padding: 45px 20px;
+            text-align: center;
+        }
+
+        .section h2 {
+            font-size: 32px;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: white;
+            width: 260px;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px #bbb;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .icon {
+            font-size: 45px;
+        }
+
+        footer {
+            background: #5b4030;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+    </style>
+</head>
+
+<body ng-controller="HomeController">
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="destinations.html">Destinations</a>
+        <a href="packages.html">Packages</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <section class="hero">
+
+        <h1>{{title}}</h1>
+
+        <p>{{message}}</p>
+
+        <button class="btn" ng-click="exploreNow()">
+            Explore Now ✈️
+        </button>
+
+    </section>
+
+    <section class="section">
+
+        <h2>Why Travel With Us?</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="icon">🌍</div>
+                <h3>Beautiful Destinations</h3>
+                <p>Explore amazing places and discover new experiences.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">💰</div>
+                <h3>Best Packages</h3>
+                <p>Choose affordable and exciting travel packages.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">❤️</div>
+                <h3>Unforgettable Memories</h3>
+                <p>Make beautiful memories with every journey.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer>
+        <p>© 2026 Travel & Tourism | Explore • Travel • Enjoy</p>
+    </footer>
+
+    <script>
+
+        var app = angular.module("travelApp", []);
+
+        app.controller("HomeController", function($scope) {
+
+            $scope.title = "Explore The World 🌎";
+
+            $scope.message =
+                "Discover beautiful destinations, exciting adventures and unforgettable journeys.";
+
+            $scope.exploreNow = function() {
+                window.location.href = "destinations.html";
+            };
+
+        });
+
+    </script>
+
+</body>
+
+</html>
